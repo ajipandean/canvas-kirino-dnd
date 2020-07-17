@@ -2,11 +2,13 @@ import React from 'react';
 
 function App() {
   return (
-    <div>
-      <header>
-        Welcome
-      </header>
-    </div>
+    <canvas
+      width={window.innerWidth}
+      height={window.innerHeight}
+      onClick={e => {
+        alert(e.clientX);
+      }}
+    />
   );
 }
 
