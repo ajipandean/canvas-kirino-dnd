@@ -13,11 +13,16 @@ function App() {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    console.log(images);
-  })
-  useEffect(() => {
     setSidenavWidth(sidenavRef.current.offsetWidth);
   }, []);
+
+  function handleClear() {
+    setImages([]);
+  }
+
+  function handleUndo() {
+    setImages(images.slice(0, -1));
+  }
 
   return (
     <>
@@ -31,8 +36,8 @@ function App() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link>Undo</Nav.Link>
-            <Nav.Link>Clear</Nav.Link>
+            <Nav.Link onClick={handleUndo}>Undo</Nav.Link>
+            <Nav.Link onClick={handleClear}>Clear</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
