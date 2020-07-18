@@ -47,15 +47,18 @@ function App() {
         className="position-fixed border-left bg-white sidenav"
       >
         <div className="container py-3">
-          <img
-            width="100%"
-            draggable="true"
-            className="img-fluid img-thumbnail"
-            src={require('../../assets/img/kirino.png')} alt="Kirino"
-            onDragStart={e => {
-              dragUrl.current = e.target.src;
-            }}
-          />
+          {['kirino', 'kiririn', 'kousaka-kirino'].map((n, i) => {
+            return <img
+              key={i}
+              width="100%"
+              draggable="true"
+              className="img-fluid img-thumbnail my-2"
+              src={require(`../../assets/img/${n}.png`)} alt={n}
+              onDragStart={e => {
+                dragUrl.current = e.target.src;
+              }}
+            />
+          })}
         </div>
       </div>
 
